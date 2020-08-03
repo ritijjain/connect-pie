@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<h6>Showing classes for {{  uni.name }}, {{ uni.location }}.</h6>
+<form class="form-inline my-2 my-lg-2">
+    <input 
+    class="form-control mr-sm-2" type="search" placeholder="Search Classes..." aria-label="Search" name="search" value="{{ request.GET.search }}">
+    <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
+  </form>
+<hr/>
+
+<a href="{% url 'add_class' %}?next={{ request.path|urlencode }}" class="btn btn-outline-primary my-2 my-sm-2" role="button">Add Class <b>+</b></a>
+
+{% if class_list %}
+{% for class in class_list%}
+
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+        <h3><a class="article-title" href="/uni/{{ class.uni.shortname }}/{{ class.uclass_id }}">{{ class.class_code }}</a></h3>
+        <h6 class="card-subtitle mb-2 text-muted">{{ class.description }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Instructor: {{ class.instructor }} | {{ class.term }}</h6>
+        </div>
+    </div>
+
+{% endfor %}
+<br>
+<p>End of results. Only 20 rows displayed at a time, please search to narrow the results.</p>
+{% else %}
+<br>
+<br>
+<p>No results. Add a <a href="{% url 'add_class' %}?next={{ request.path|urlencode }}">class</a>.</p>
+{% endif %}
+
+
+
+{% endblock content %}

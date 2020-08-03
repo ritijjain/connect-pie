@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<h6>Showing all universities.</h6>
+<form class="form-inline my-2 my-lg-2">
+    <input 
+    class="form-control mr-sm-2" type="search" placeholder="Search Universities..." aria-label="Search" name="search" value="{{ request.GET.search }}">
+    <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
+  </form>
+<hr/>
+
+
+{% for uni in uni_list%}
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+        <h3><a class="article-title" href="/uni/{{ uni.shortname }}">{{ uni.name }}</a></h3>
+        <h6 class="card-subtitle mb-2 text-muted">{{ uni.location }}</h6>
+        </div>
+    </div>
+
+{% endfor %}
+
+
+{% endblock content %}

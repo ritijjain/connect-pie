@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>About</h1>
+<hr>
+
+<p>ConnectPie Version 1.0</p>
+
+<p>ConnectPie is an applicaiton that makes it easy for college students with common classes to connect. Devloped using Django. Devloped by <a href= "https://ritijjain.com/" target="_blank">Ritij Jain</a>.</p>
+
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScXbzB-TY7ti2RHxKEII0ogM4fkUFxKqrR3KFE8g1NreHoUMg/viewform?usp=sf_link" target="_blank">Contact Form</a> | <a href="{% url 'toc' %}">Privacy Policy</a></p>
+
+{% endblock content %}
