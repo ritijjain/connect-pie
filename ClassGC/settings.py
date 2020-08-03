@@ -26,7 +26,7 @@ SECRET_KEY =  os.environ["CLASSGC_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['classgc.herokuapp.com']
+ALLOWED_HOSTS = ['connectpie.herokuapp.com']
 
 
 # Application definition
