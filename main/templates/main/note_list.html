@@ -11,8 +11,8 @@
   </form>
 <hr/>
 
-<a href="{% url 'add_url' %}?next={{ request.path|urlencode }}" class="btn btn-outline-primary my-2 my-sm-2" role="button">Add GroupGC <b>+</b></a>
-<a href="{% url 'add_note' %}?next={{ request.path|urlencode }}" class="btn btn-outline-primary my-2 my-sm-2" role="button">Add Note <b>+</b></a>
+<a href="{% url 'add_url' %}?next={{ request.path|urlencode }}" class="btn btn-outline-primary my-2 my-sm-2" role="button">Post a URL <b>+</b></a>
+<a href="{% url 'add_note' %}?next={{ request.path|urlencode }}" class="btn btn-outline-primary my-2 my-sm-2" role="button">Pot a Note <b>+</b></a>
 
 {% if url_list or note_list %}
 {% for url in url_list%}
