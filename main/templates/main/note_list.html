@@ -4,9 +4,9 @@
 {% block content %}
 <h6>Showing notes and urls for {{ uclass.class_code }} at {{  uni.name }}, {{ uni.location }}.</h6>
 <h6>Instructor: {{ uclass.instructor }} | {{ uclass.term }}</h6>
-<form class="form-inline my-2 my-lg-2">
+<form class="form-inline my-2 my-sm-2">
     <input 
-    class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" name="search" value="{{ request.GET.search }}">
+    class="form-control my-2 my-sm-2" type="search" placeholder="Search..." aria-label="Search" name="search" value="{{ request.GET.search }}">
     <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
   </form>
 <hr/>
