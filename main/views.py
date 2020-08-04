@@ -5,6 +5,7 @@ from .forms import Create_uClass, Create_Note, Create_URL
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 def home(request):
     return redirect('/uni')
@@ -31,7 +32,7 @@ def class_list(request, shortname):
 
     if 'search' in request.GET:
         search_term = request.GET['search']
-        class_list = uClass.objects.all().filter(uni__shortname=shortname, class_code__icontains=search_term)[:20]
+        class_list = uClass.objects.all().filter(Q(uni__shortname=shortname), Q(class_code__icontains=search_term) | Q(description__icontains=search_term))[:20]
     
     context = {'class_list': class_list, 'uni': uni, 'title': uni.name}
     return render(request, 'main/class_list.html', context)
